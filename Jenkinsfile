@@ -49,7 +49,7 @@ pipeline {
     //       '''
     //  }    
     // }
-}
+// }
 // post {
 //     failure {
 //         mail to: 'unsolveddevops@gmail.com',
