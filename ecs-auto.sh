@@ -1,7 +1,7 @@
 #!/bin/bash
 SERVICE="sample"
 CLUSTER_NAME="sample"
-AWS_REGION="ap-south-1"
+AWS_REGION="us-east-1"
 export AWS_PROFILE=default
 
 # Register a new Task definition 
