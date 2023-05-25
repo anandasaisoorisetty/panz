@@ -27,18 +27,18 @@ pipeline {
 //       }   
 //     }
 	  
- //  stage('Docker build and push') {
- //     steps {
- //       sh '''
- //        whoami
- //        DOCKER_LOGIN_PASSWORD=$(aws ecr get-login-password  --region ap-south-1)
- //        docker login -u AWS -p $DOCKER_LOGIN_PASSWORD https://971076122335.dkr.ecr.ap-south-1.amazonaws.com
- //        docker build -t 971076122335.dkr.ecr.ap-south-1.amazonaws.com/sample:SAMPLE-PROJECT-${BUILD_NUMBER} .
- //        docker push 971076122335.dkr.ecr.ap-south-1.amazonaws.com/sample:SAMPLE-PROJECT-${BUILD_NUMBER}
+   stage('Docker build and push') {
+      steps {
+       sh '''
+        whoami
+         DOCKER_LOGIN_PASSWORD=$(aws ecr get-login-password  --region )
+         docker login -u AWS -p $DOCKER_LOGIN_PASSWORD https://021285417290.dkr.ecr.us-east-1.amazonaws.com
+         docker build -t 021285417290.dkr.ecr.us-east-1.amazonaws.com/sample:SAMPLE-PROJECT-${BUILD_NUMBER} .
+         docker push 021285417290.dkr.ecr.us-east-1.amazonaws.com/sample:SAMPLE-PROJECT-${BUILD_NUMBER}
           
-//	  '''
-  //   }   
-   // }
+	  '''
+     }   
+    }
 	  
     // stage('ecs deploy') {
     //   steps {
