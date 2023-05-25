@@ -1,6 +1,6 @@
 #!/bin/bash
 SERVICE="sample"
-CLUSTER_NAME="sample"
+CLUSTER_NAME="demo-kube"
 AWS_REGION="us-east-1"
 export AWS_PROFILE=default
 
