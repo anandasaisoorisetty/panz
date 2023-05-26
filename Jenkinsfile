@@ -4,9 +4,9 @@ pipeline {
     pollSCM '* * * * *'
   }
   stages {
-     stage('SonarQube Analysis') {
+      stage('SonarQube Analysis') {
       steps {
-        withSonarQubeEnv('sonar_server') {
+        script {
           def scannerHome = tool 'SonarScanner for MSBuild'
           withSonarQubeEnv('sonar_server') {
             sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"panz\""
