@@ -7,14 +7,20 @@ pipeline {
      stage('SonarQube Analysis') {
        steps {
 	  withSonarQubeEnv(credentialsId: 'sonar_server') {
-         sh '''
- 	 whoami
- 	 echo $PATH
-          echo Restore started on `date`.
-          dotnet restore panz.csproj
-          dotnet build panz.csproj -c Release
+		   def scannerHome = tool 'SonarScanner for MSBuild'
+    withSonarQubeEnv() {
+      sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"panz\""
+      sh "dotnet build"
+      sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+    }
+        // sh '''
+ 	 //whoami
+ 	 //echo $PATH
+          //echo Restore started on `date`.
+          //dotnet restore panz.csproj
+          //dotnet build panz.csproj -c Release
         
-         '''
+         //'''
 	  }
       }
      }
