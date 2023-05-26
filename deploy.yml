@@ -36,7 +36,6 @@ spec:
 
         image: nginx
         
-        // 021285417290.dkr.ecr.us-east-1.amazonaws.com/sample:SAMPLE-PROJECT-buildNumber
 
         ports:
 
