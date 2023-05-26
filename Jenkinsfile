@@ -6,6 +6,7 @@ pipeline {
   stages {
       stage('SonarQube Analysis') {
       steps {
+	      withSonarQubeEnv('sonar_server') {
          sh '''
  	 whoami
  	 echo $PATH
@@ -14,6 +15,7 @@ pipeline {
           dotnet build panz.csproj -c Release
         
          '''
+		      )
   }
 }
       
