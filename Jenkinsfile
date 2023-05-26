@@ -60,6 +60,7 @@ pipeline {
 	  
     stage('eks deploy') {
        steps {
+	       withAWS(credentials: 'AWS_CRED', region: 'us-east-1') {
          sh '''
 	   aws eks update-kubeconfig --name demo-kube --region us-east-1
 	   sed "s/buildNumber/${BUILD_NUMBER}/g" deploy.yml > deploy-new.yml 
@@ -67,6 +68,7 @@ pipeline {
 	   kubectl apply -f svc.yml
          
          '''
+	       }
      }    
      }
 // }
