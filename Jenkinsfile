@@ -44,7 +44,7 @@ pipeline {
        steps {
          sh '''
 	   aws eks update-kubeconfig --name demo-kube --region us-east-1
-	   kubectl apply -f deploy.yml
+	   kubectl apply -f kubernetes/deploy.yml
 	   kubectl apply -f svc.yml
            chmod +x changebuildnumber.sh
            ./changebuildnumber.sh $BUILD_NUMBER
