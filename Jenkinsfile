@@ -39,7 +39,7 @@ pipeline {
                     docker login -u AWS -p $AWS_ID https://021285417290.dkr.ecr.us-east-1.amazonaws.com
                     docker build -t 021285417290.dkr.ecr.us-east-1.amazonaws.com/sample:SAMPLE-PROJECT-${BUILD_NUMBER} .
                     docker push 021285417290.dkr.ecr.us-east-1.amazonaws.com/sample:SAMPLE-PROJECT-${BUILD_NUMBER}
-                
+                }
                 '''
 	    }
             }
