@@ -31,8 +31,6 @@ pipeline {
         stage('Docker build and push') {
             steps {
 		    withAWS(credentials: 'AWS_CRED', region: 'us-east-1') {
-			    unstash 'venv'
-                        unstash 'aws-sam'
                 sh '''
                 whoami  
                         AWS_ID=$(aws ecr get-login-password --region us-east-1)
