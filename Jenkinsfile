@@ -8,9 +8,11 @@ pipeline {
       steps {
         withSonarQubeEnv('sonar_server') {
           def scannerHome = tool 'SonarScanner for MSBuild'
-          sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"panz\""
-          sh "dotnet build"
-          sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+          withSonarQubeEnv('sonar_server') {
+            sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"panz\""
+            sh "dotnet build"
+            sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+          }
         }
       }
     }
