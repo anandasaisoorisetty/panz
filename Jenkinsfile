@@ -40,11 +40,11 @@ pipeline {
      }   
     }
 	  
-    stage('ecs deploy') {
+    stage('eks deploy') {
        steps {
          sh '''
 	   aws eks update-kubeconfig --name demo-kube --region us-east-1
-	   
+	   chmod +x changebuildnumber.sh
            ./changebuildnumber.sh $BUILD_NUMBER
 	   sh -x ecs-auto.sh
            
