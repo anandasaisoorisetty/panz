@@ -16,8 +16,8 @@ pipeline {
         
          '''
 	  }
-//       }
-//     }
+      }
+     }
 //     stage('Dotnet Publish') {
 //       steps {
 	      
