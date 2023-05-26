@@ -10,7 +10,7 @@ pipeline {
  	 whoami
  	 echo $PATH
           echo Restore started on `date`.
-          dotnet restore panz.csproj
+         # dotnet restore panz.csproj
           dotnet build panz.csproj -c Release
         
          '''
