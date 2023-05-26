@@ -33,13 +33,13 @@ pipeline {
                 sh '''
                 whoami
                 withAWS(credentials: 'AWS_CRED', region: 'us-east-1') {
-                    unstash 'venv'
-                    unstash 'aws-sam'
-                    AWS_ID=$(aws ecr get-login-password --region us-east-1)
-                    docker login -u AWS -p $AWS_ID https://021285417290.dkr.ecr.us-east-1.amazonaws.com
-                    docker build -t 021285417290.dkr.ecr.us-east-1.amazonaws.com/sample:SAMPLE-PROJECT-${BUILD_NUMBER} .
-                    docker push 021285417290.dkr.ecr.us-east-1.amazonaws.com/sample:SAMPLE-PROJECT-${BUILD_NUMBER}
-                }
+                        unstash 'venv'
+                        unstash 'aws-sam'
+                        AWS_ID=$(aws ecr get-login-password --region us-east-1)
+                        docker login -u AWS -p $AWS_ID https://021285417290.dkr.ecr.us-east-1.amazonaws.com
+                        docker build -t 021285417290.dkr.ecr.us-east-1.amazonaws.com/sample:SAMPLE-PROJECT-${BUILD_NUMBER} .
+                        docker push 021285417290.dkr.ecr.us-east-1.amazonaws.com/sample:SAMPLE-PROJECT-${BUILD_NUMBER}
+                    }
                 '''
 	    }
             }
