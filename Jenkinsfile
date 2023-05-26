@@ -22,9 +22,9 @@ pipeline {
           //dotnet build panz.csproj -c Release
         
          //'''
-	  }
-      }
-     }
+	  
+      
+     
 //     stage('Dotnet Publish') {
 //       steps {
 	      
