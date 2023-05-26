@@ -4,16 +4,18 @@ pipeline {
     pollSCM '* * * * *'
   }
   stages {
-//     stage('SonarQube Analysis') {
-//       steps {
-//         sh '''
-// 	 whoami
-// 	 echo $PATH
-//          echo Restore started on `date`.
-//          dotnet restore panz.csproj
-//          dotnet build panz.csproj -c Release
+     stage('SonarQube Analysis') {
+       steps {
+	  withSonarQubeEnv(credentialsId: 'sonar_server') {
+         sh '''
+ 	 whoami
+ 	 echo $PATH
+          echo Restore started on `date`.
+          dotnet restore panz.csproj
+          dotnet build panz.csproj -c Release
         
-//         '''
+         '''
+	  }
 //       }
 //     }
 //     stage('Dotnet Publish') {
